@@ -1,0 +1,2 @@
+<!ENTITY one SYSTEM "http://172.17.0.1:8888/ssrf1" >
+<!ENTITY five "&one; &one; &one; &one; &one;" >
