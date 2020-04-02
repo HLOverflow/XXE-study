@@ -1,0 +1,174 @@
+/*
+Responsive Template Name: RS-MQF 1200 V.2
+File: 1200px Responsive Framework CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+/* #################################################################################################### */
+/* ############### PLEASE READ THE FOLLOWING TO UNDERSTAND THIS DOCUMENT ############################## */
+/* ###############  FEEL FREE TO DELETE THE INSTRUCTIONS IF NOT NEEDED   ############################## */
+/* #################################################################################################### */
+
+/*
+The following should help you understand how to work out the box size for a 1200px responsive max-width layout.
+
+Step 1:
+
+We start out with a fixed width - in this case it is 1200px
+
+We set our distance between each box (margin / gutter) - in this case it is 48px
+
+We now start to do some math.
+
+Step 2:
+
+First we find out what 60px in percentage is: 60px ÷ 1200px × 100 = 5%
+
+Step 3:
+
+We now decide on how many elements / sections / boxes we want to use and how they will look - our instance has 1, 2, 3, 4, 5 & 6 box sections
+
+To illustrate how these elements will work, we use the following demonstration:
+
+   1. box
+   2. box | margin | box
+   3. box | margin | box | margin | box
+   4. box | margin | box | margin | box | margin | box
+   5. box | margin | box | margin | box | margin | box | margin | box
+   6. box | margin | box | margin | box | margin | box | margin | box | margin | box
+
+Step 4:
+
+Now we work out the width of each box for each situation.
+
+For the following demonstration we have completed the math for the points 2 & 3 from the above list:
+
+WORKING OUT ONE HALF: ( box | margin | box )
+
+Fixed width minus the gutter / margin, divide the result by two and your finished:
+1200px - 60px = 1140px ÷ 2 = 570px
+
+To work out the Responsive / fluid width we use the result from the fixed width:
+570px ÷ 1200px × 100 = 47.5%
+
+WORKING OUT ONE THIRD: ( box | margin | box | margin | box )
+
+Here we have double the margin, so we need to double the margin measurement in our equation
+
+Fixed width minus 2 × margin, divide the result by three and your finished:
+1200px - 120px ÷ 3 = 360px
+
+To work out the Responsive / fluid width we use the result from the fixed width:
+360px ÷ 1200px × 100 = 30%
+
+So now we have an end result that mathematically looks like:
+
+30% | 5% | 30% | 5% | 30%
+
+If you add all of the above sizes together you get => 100%
+
+Step 5:
+
+Now that we have worked out the measurement for one element box we can work out the sum of multiple boxes:
+
+For our example we use the "One Third" result from above, basically one box with a margin and two boxes combined together, using our visual help we go from:
+
+box | margin | box | margin | box   => to =>   box | margin | boxbox
+
+1 box = 1200px - 120px ÷ 3 = 360px
+
+2 boxes = width of 1 box × 2 + the width of one margin (the margin is no-longer in use so it is added to the width of the two boxes)
+
+2 boxes = 360px × 2 + 60px = 780px
+
+The responsive width is found using the above result:
+
+780px ÷ 1200px × 100 = 65%
+
+So now we have an end result that mathematically looks like:
+
+30% | 5% | 65%
+
+If you add all of the above sizes together you get => 100%
+*/
+
+.one_half, 
+.one_third, .two_third, 
+.one_quarter, .two_quarter, .three_quarter, 
+.one_fifth, .two_fifth, .three_fifth, .four_fifth, 
+.one_sixth, .two_sixth, .three_sixth, .four_sixth, .five_sixth{display:inline; float:left; margin:0 0 0 5%; list-style:none;}
+
+.one_half:first-child, 
+.one_third:first-child, .two_third:first-child, 
+.one_quarter:first-child, .two_quarter:first-child, .three_quarter:first-child, 
+.one_fifth:first-child, .two_fifth:first-child, .three_fifth:first-child, .four_fifth:first-child, 
+.one_sixth:first-child, .two_sixth:first-child, .three_sixth:first-child, .four_sixth:first-child, .five_sixth:first-child{margin-left:0;}
+
+.first{margin-left:0; clear:left;}
+
+.full_width{display:block; width:100%; clear:both;}
+
+/*----------------------------------------------Half Grid-------------------------------------*/
+
+/*
+.one_half{width:570px;} => 570 ÷ 1200 = 0.475 * 100 = 47.5
+*/
+
+.one_half{width:47.5%;}
+
+/*----------------------------------------------Third Grid-------------------------------------*/
+
+/*
+.one_third{width:360px;} => 360 ÷ 1200 = 0.3 * 100 = 30
+.two_third{width:780px} => 780 ÷ 1200 = 0.65 * 100 = 65
+*/
+
+.one_third{width:30%;}
+.two_third{width:65%;}
+
+
+/*----------------------------------------------Quarter Grid-------------------------------------*/
+
+/*
+.one_quarter{width:255px;} => 255 ÷ 1200 = 0.2125 * 100 = 21.25
+.two_quarter{width:570px} => 570 ÷ 1200 = 0.475 * 100 = 47.5
+.three_quarter{width:885px} => 885 ÷ 1200 = 0.7375 * 100 = 73.75
+*/
+
+.one_quarter{width:21.25%;}
+.two_quarter{width:47.5%;} /* Same as one_half */
+.three_quarter{width:73.75%;}
+
+
+/*----------------------------------------------Fifth Grid-------------------------------------*/
+
+/*
+.one_fifth{width:192px;} => 192 ÷ 1200 = 0.16 * 100 = 16
+.two_fifth{width:444px} => 444 ÷ 1200 = 0.37 * 100 = 37
+.three_fifth{width:696px} => 696 ÷ 1200 = 0.58 * 100 = 58
+.four_fifth{width:948px} => 948 ÷ 1200 = 0.79 * 100 = 79
+*/
+
+.one_fifth{width:16%;}
+.two_fifth{width:37%;}
+.three_fifth{width:58%;}
+.four_fifth{width:79%;}
+
+
+/*----------------------------------------------Sixth Grid-------------------------------------*/
+
+/*
+.one_sixth{width:150px;} => 150 ÷ 1200 = 0.125 * 100 = 12.5
+.two_sixth{width:360px;} => 360 ÷ 1200 = 0.3 * 100 = 30
+.three_sixth{width:570px;} => 570 ÷ 1200 = 0.475 * 100 = 47.5
+.four_sixth{width:780px;} => 780 ÷ 1200 = 0.65 * 100 = 65
+.five_sixth{width:990px;} => 990 ÷ 1200 = 0.825 * 100 = 82.5
+*/
+
+.one_sixth{width:12.5%;}
+.two_sixth{width:30%;} /* Same as one_third */
+.three_sixth{width:47.5%;} /* Same as one_half */
+.four_sixth{width:65%;} /* Same as two_third */
+.five_sixth{width:82.5%;}

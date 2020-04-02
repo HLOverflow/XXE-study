@@ -1,0 +1,11 @@
+# this is a dockerized version of Haboob's XXE VM from vulnhub without the phpnonalpha2 decoding.
+
+# environment
+
+Apache 2.4.27
+php 7.1.15
+/etc/.flag.php
+
+# XML Parser used is XML DOM parser.
+# https://www.w3schools.com/pHP/php_xml_dom.asp
+

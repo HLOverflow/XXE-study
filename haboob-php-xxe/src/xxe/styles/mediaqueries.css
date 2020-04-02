@@ -1,0 +1,70 @@
+/*
+Responsive Template Name: RS-MQF 1200 V.2
+File: Media Queries CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+@-ms-viewport{width:device-width;} /* http://msdn.microsoft.com/en-gb/library/ie/hh869615%28v=vs.85%29.aspx */
+
+/* 240 + 320px */
+
+@media screen and (min-width:240px) and (max-width:360px) {
+	#header, #topnav, #container, #footer{max-width:95%; margin:0 auto;}
+	
+	#topnav ul{display:none;}
+	
+	.one_half, 
+	.one_third, .two_third, 
+	.one_quarter, .two_quarter, .three_quarter, 
+	.one_fifth, .two_fifth, .three_fifth, .four_fifth, 
+	.one_sixth, .two_sixth, .three_sixth, .four_sixth, .five_sixth{display:block; float:none; width:auto; margin:0 0 2% 0; padding:0;}
+	
+	#header #hgroup{display:block; width:100%; float:none; margin:0 0 15px 0; padding:0;}
+	
+	#header, #footer{text-align:center;}
+	#footer p{float:none; line-height:1.6em;}
+	#footer p:first-child{margin-bottom:8px;}
+}
+
+/* 480px */
+
+@media screen and (min-width:361px) and (max-width:600px) {
+	#header, #topnav, #container, #footer{max-width:95%; margin:0 auto;}
+	
+	#topnav ul{display:none;}
+	
+	#footer p{float:none;}
+	#footer p:first-child{margin-bottom:8px;}
+}
+
+/* 768px */
+
+@media screen and (min-width:601px) and (max-width:800px) {
+	#header, #topnav, #container, #footer{max-width:95%; margin:0 auto;}
+}
+
+/* 960px */
+
+@media screen and (min-width:960px) {
+	#header, #topnav, #container, #footer{max-width:95%; margin:0 auto;}
+}
+
+/* 1028px */
+
+@media screen and (min-width:1028px) {
+	#header, #topnav, #container, #footer{max-width:95%; margin:0 auto;}
+}
+
+/* 1200px */
+
+@media screen and (min-width:1200px) {
+	#header, #topnav, #container, #footer{max-width:1200px; margin:0 auto;}
+}
+
+/* Hide The Jquery Generated Navigation Form from 601px upwards */
+
+@media screen and (min-width:601px) and (max-width:1920px) {
+	#topnav form{display:none;}
+}

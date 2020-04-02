@@ -1,0 +1,83 @@
+/*
+Responsive Template Name: RS-MQF 1200 V.2
+File: Layout CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+@import url(framework.css);
+@import url(navi.css);
+
+html{overflow-y:scroll;}
+
+body{margin:0; padding:0; font-size:100%; font-family:Georgia, "Times New Roman", Times, serif; color:#919191; background-color:#232323;}
+
+.justify{text-align:justify;}
+.bold{font-weight:bold;}
+.center{text-align:center;}
+.right{text-align:right;}
+.nostart{margin:0; padding:0; list-style:none;}
+.hidden{display:none;}
+
+.clear{display:block; clear:both;}
+.clear:after{display:block; visibility:hidden; height:0; clear:both; font-size:0; content:"";}
+
+a{outline:none; text-decoration:none;}
+
+.fl_left{float:left;}
+.fl_right{float:right;}
+
+img{width:auto; max-width:100%; height:auto; margin:0; padding:0; border:none; line-height:normal; vertical-align:middle;}
+.imgholder, .imgl, .imgr{padding:4px; border:1px solid #D6D6D6; text-align:center;}
+.imgl{float:left; margin:0 15px 15px 0; clear:left;}
+.imgr{float:right; margin:0 0 15px 15px; clear:right;}
+
+/*----------------------------------------------HTML 5 Overrides-------------------------------------*/
+
+address, article, aside, figcaption, figure, footer, header, nav, section{display:block; margin:0; padding:0;}
+
+/*----------------------------------------------Responsive Videos-------------------------------------*/
+
+.video{display:block; position:relative; width:100%; height:0; margin:0; padding:0 0 56.25% 0; /* using a 16:9 aspect ratio, the height is 56.25% of the width (9/16=0.5625) */}
+.video iframe{display:block; position:absolute; width:100%; height:100%; margin:0; padding:0;}
+
+/* ----------------------------------------------Wrapper-------------------------------------*/
+
+div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
+
+.row1, .row1 a{color:#C0BAB6; background-color:#333333;}
+.row2{color:#919191; background-color:#232323;}
+.row3{color:#979797; background-color:#FFFFFF;}
+.row3 a{color:#FF9900; background-color:#FFFFFF;}
+.row4, .row4 a{color:#919191; background-color:#232323;}
+
+/*----------------------------------------------Generalise-------------------------------------*/
+
+h1, h2, h3, h4, h5, h6{margin:0 0 8px 0; padding:0; font-size:1.6em; font-weight:normal; line-height:normal;}
+
+address{font-style:normal;}
+
+blockquote, q{display:block; padding:8px 10px; color:#979797; background-color:#ECECEC; font-style:italic; line-height:normal;}
+blockquote:before, q:before{content:'“ '; font-size:26px;}
+blockquote:after, q:after{content:' „'; font-size:26px; line-height:0;}
+
+#header, #topnav, #container, #footer, #copyright{margin:0 auto; font-size:.8em;}
+
+/*----------------------------------------------Header-------------------------------------*/
+
+#header{padding:20px 0;}
+
+#header #hgroup{display:block; float:left; width:auto; clear:right;}
+#header #hgroup h1, #header #hgroup h2{margin:0; font-weight:normal; text-transform:none;}
+#header #hgroup h1{font-size:2.5em;}
+#header #hgroup h2{font-size:1em;}
+
+/*----------------------------------------------Content Area-------------------------------------*/
+
+#container{padding:30px 0; clear:both;}
+
+/*----------------------------------------------Footer-------------------------------------*/
+
+#footer{padding:20px 0;}
+#footer p{margin:0; padding:0;}

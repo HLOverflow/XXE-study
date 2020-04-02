@@ -1,0 +1,40 @@
+/*
+Responsive Template Name: RS-MQF 1200 V.2
+File: Navigation CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+nav ul{margin:0; padding:0; list-style:none;}
+
+/* ----------------------------------------------Top Navigation-------------------------------------*/
+
+#topnav{padding:20px 0; color:#C0BAB6; background-color:#232323; clear:both;}
+#topnav ul{margin:0; padding:0; list-style:none; text-transform:uppercase; font-size:12px;}
+#topnav ul ul{z-index:9999; position:absolute; width:160px; text-transform:none;}
+#topnav ul ul ul, #topnav ul ul ul ul{left:160px; top:0;}
+#topnav ul li:last-child ul, #topnav ul li.last-child ul{right:0;}
+#topnav ul.negative{left:-160px;}
+#topnav li{position:relative; display:block; float:left; margin:0 0 0 30px; padding:0; background-color:red;}
+#topnav li:first-child, #topnav li.first{margin-left:0;}
+#topnav li li{width:100%; margin:0;}
+#topnav li a{display:block; padding:0;}
+#topnav li li a{display:block; margin:0; padding:10px 15px;}
+
+#topnav ul ul{display:none;}
+#topnav ul li:hover > ul{display:block;}
+
+#topnav a{color:#C0BAB6; background-color:#232323; font-weight:bold;}
+
+#topnav li li a, #topnav li.active li a{color:#FFFFFF; background:#000000; font-weight:normal;}
+#topnav li.active a, #topnav a:hover{color:#FF9900; background-color:#232323;}
+#topnav ul li li:hover > a{color:#FFFFFF; background-color:#FF9900;}
+
+#topnav li a.drop, #topnav li.active a.drop{padding-left:15px; background-image:url("images/dropdown_side.gif"); background-position:5px center; background-repeat:no-repeat;}
+
+/* Top navigation for smaller resolutions */
+
+#topnav form{display:block; height:30px; margin:0 auto; padding:0;}
+#topnav form select{display:block; width:100%; padding:8px; color:#FFFFFF; background-color:#232323; border:1px solid #494949; cursor:pointer; outline:none;}
+#topnav form select option{display:block; margin:10px; padding:0; cursor:pointer; outline:none; border:none;}
