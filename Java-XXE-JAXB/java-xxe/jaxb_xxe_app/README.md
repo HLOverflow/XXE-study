@@ -1,6 +1,6 @@
 # Java XXE demonstration
 
-Parse that is being used is JAXB (Java Architecture for XML Binding).
+Parser that is being used is JAXB (Java Architecture for XML Binding).
 
 # Set up
 
