@@ -1,2 +1,2 @@
 #!/bin/bash
-docker image build -t java-XXE .
+docker image build -t java-jaxb-xxe .
