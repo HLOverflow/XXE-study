@@ -9,4 +9,4 @@ This can serve as a playground to test your scanners or use for teaching XXE.
 - PHP
 	- DOM parser
 - Java
-	- JAXB parser (in progress)
+	- JAXB parser
