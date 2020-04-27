@@ -1,0 +1,5 @@
+<!DOCTYPE root [ <!ENTITY lastname "TEST" > ]>
+<employee id="1">
+<name>Amy &lastname;</name>
+<salary>6000.0</salary>
+</employee>

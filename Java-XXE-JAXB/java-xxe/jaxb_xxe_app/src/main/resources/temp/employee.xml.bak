@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE root [
+	<!ENTITY lastname SYSTEM "file:///etc/hosts" >
+]>
+<employee id="1">
+    <name>Amy &lastname;</name>
+    <salary>6000.0</salary>
+</employee>
