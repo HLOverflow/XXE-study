@@ -100,6 +100,9 @@ public class XXEApp
 
     	try{
 
+		//Explicitly turn on External DTD access
+		System.setProperty("javax.xml.accessExternalDTD", "all");
+
 
     		JAXBContext contextObj = JAXBContext.newInstance(Employee.class);        		
     		Unmarshaller jaxbUnmarshaller = contextObj.createUnmarshaller();
