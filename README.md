@@ -4,7 +4,7 @@ XXE labs set up for different languages and their different parsers.
 This can serve as a playground to test your scanners or use for teaching XXE.
 
 # Available environments
-- RESTFUL api
+- Basic Web app with REST api
 	- Python
 		- eTree parser
 		- lxml parser ( TODO )
