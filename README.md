@@ -13,8 +13,7 @@ This can serve as a playground to test your scanners or use for teaching XXE.
 	- Java
 		- JAXB parser
 		
-- SOAP Web services
-	- Python
-	- PHP
-	- Java
-		- Apache Axis SOAP XXE (TODO)
+- Investigate SOAP Web services for XXE.
+	- Python ( TO DO )
+	- PHP ( Built-in SoapServer, Other frameworks, etc )
+	- Java ( Springboot SoapServer, Other frameworks, etc )
