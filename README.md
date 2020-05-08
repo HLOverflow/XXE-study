@@ -7,7 +7,7 @@ This can serve as a playground to test your scanners or use for teaching XXE.
 - Basic Web app with REST api
 	- Python
 		- eTree parser
-		- lxml parser ( TODO )
+		- lxml parser ( eTree python depends on lxml )
 	- PHP
 		- DOM parser
 	- Java
