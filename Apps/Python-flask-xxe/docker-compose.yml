@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+
+  vulnserver:
+    # contains the vulnerable code to exploit
+    container_name: vulnerableserver
+    build:
+      context: ./vulnserver
+    ports:
+      - 8081:5000
+    networks:
+      - xxeflaskdemo
+    cap_add:
+      - NET_ADMIN
+
+  attackerserver: 
+    # attacker's webservice to retrieve external DTD files
+    # http://attackerserver:8888 will be resolvable in xxeflaskdemo network.
+    container_name: attackerserver
+    build:
+      context: ./attackerserver
+      args:
+        LPORT: 8888
+    networks:
+      - xxeflaskdemo
+
+  aws-metadata-simulator: 
+    # use to demonstrate SSRF's impact in AWS cloud
+    container_name: aws-metadata-simulator
+    build:
+      context: ./aws-metadata-simulator/
+    networks:
+      - xxeflaskdemo
+
+networks:
+  xxeflaskdemo:
+    driver: "bridge"

