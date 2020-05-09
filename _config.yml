@@ -32,9 +32,9 @@
 # in the templates via {{ site.myvariable }}.
 
 title: XXE Study
-subtitle: XXE labs / playground set up for different languages and their different parsers. 
+subtitle: XXE labs / playground  
 description: >- # this means to ignore newlines until "author:"
-  This is the demo site for an XXE playground set up to learn XXE exploitations.
+  This is the demo site for an XXE playground set up to learn XXE exploitations with different languages and their parsers.
 author: hloverflow
 email: hloverflow0@gmail.com
 avatar: assets/images/avatar.jpg
