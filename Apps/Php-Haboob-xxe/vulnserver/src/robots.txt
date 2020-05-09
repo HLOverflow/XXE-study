@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-User-Agent: *
-Disallow: /xxe/*
-Disallow: /admin.php

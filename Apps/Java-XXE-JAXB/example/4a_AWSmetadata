@@ -1,1 +1,0 @@
-<!DOCTYPE root [ <!ENTITY lastname SYSTEM "http://196.254.196.254/latest/meta-data/" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>

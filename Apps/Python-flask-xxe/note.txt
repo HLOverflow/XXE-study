@@ -1,2 +1,0 @@
-# python xml parser used is etree
-By default there is an attribute "no_network" that is set is True. This prevents XXE from doing SSRF attacks. 

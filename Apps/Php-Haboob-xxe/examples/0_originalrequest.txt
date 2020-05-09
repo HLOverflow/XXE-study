@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><root><name>tst</name><password>tett</password></root>
