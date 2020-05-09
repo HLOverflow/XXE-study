@@ -10,6 +10,7 @@ services:
       - 8081:5000
     networks:
       - xxeflaskdemo
+    # to allow IP FORWARDING
     cap_add:
       - NET_ADMIN
 

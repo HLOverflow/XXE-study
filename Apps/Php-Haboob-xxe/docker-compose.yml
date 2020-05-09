@@ -10,6 +10,7 @@ services:
       - 8082:80
     networks:
       - xxephpdemo
+    # to allow IP FORWARDING
     cap_add:
       - NET_ADMIN
 
