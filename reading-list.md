@@ -1,5 +1,5 @@
 ---
-title: Recommended Resources
+title: Other Resources
 subtitle: Great works by others
 layout: "page"
 icon: fa-coffee
