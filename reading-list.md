@@ -2,7 +2,7 @@
 title: Recommended Resources
 subtitle: Great works by others
 layout: "page"
-icon: fa-dice-d20
+icon: fa-coffee
 order: 3
 ---
 

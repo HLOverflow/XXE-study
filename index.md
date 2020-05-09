@@ -4,6 +4,6 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 title: Getting Started
-icon: fa-docker
+icon: fa-code
 order: 1
 ---
