@@ -1,7 +1,7 @@
 ---
 title: Set Up
 icon: fa-terminal
-order: 3
+order: 2
 ---
 
 1. Install docker.
