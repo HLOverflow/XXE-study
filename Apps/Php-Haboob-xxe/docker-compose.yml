@@ -15,7 +15,7 @@ services:
 
   attackerserver: 
     # attacker's webservice to retrieve external DTD files
-    # http://attackerserver:8888 will be resolvable in xxephpdemo network.
+    # http://attackerserver-php:8888 will be resolvable in xxephpdemo network.
     container_name: attackerserver-php
     build:
       context: ./attackerserver

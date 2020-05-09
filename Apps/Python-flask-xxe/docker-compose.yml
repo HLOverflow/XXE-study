@@ -15,7 +15,7 @@ services:
 
   attackerserver: 
     # attacker's webservice to retrieve external DTD files
-    # http://attackerserver:8888 will be resolvable in xxeflaskdemo network.
+    # http://attackerserver-flaskxxe:8888 will be resolvable in xxeflaskdemo network.
     container_name: attackerserver-flaskxxe
     build:
       context: ./attackerserver
