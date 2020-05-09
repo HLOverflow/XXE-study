@@ -8,7 +8,7 @@ order: 3
 
 # More Open-source Labs
 1. [c0ny1/xxe-lab](https://github.com/c0ny1/xxe-lab): A repository in chinese.
-2. [jbarone/xxelab](https://github.com/jbarone/xxelab)
+2. [jbarone/xxelab](https://github.com/jbarone/xxelab): PHP application with python XXE shell
 
 # Some Blogs on XXE
-1. [DepthSecurity: Exploitation](https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection)
+1. [DepthSecurity: Exploitation](https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection): Exploitation technique for PHP web.
