@@ -1,0 +1,22 @@
+Based off from https://github.com/nytimes/mock-ec2-metadata
+https://github.com/priorax/mock-ec2-metadata.git
+
+# Requires to configure IP forwarding in the vulnerable server with container names.
+1. Copy setup-aws-simulator.sh.template to the respective vulnerable server folders.
+2. Add the following capabilities in the Docker-compose file under the vulnerable server.
+
+```
+# to allow IP FORWARDING
+cap_add:
+- NET_ADMIN
+```
+
+3. Add the following in the Dockerfile.
+
+```
+RUN apt-get update && apt-get install -y iptables
+RUN apt-get install -y iputils-ping
+COPY ./setup-aws-simulator.sh /
+RUN chmod +x /setup-aws-simulator.sh
+ENTRYPOINT /setup-aws-simulator.sh && INSERTYOURENTRYPOINTCOMMANDHERE
+```

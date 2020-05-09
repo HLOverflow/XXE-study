@@ -9,7 +9,7 @@
 
     <p>Update Employee status</p>
    
-    <p>Test jar file</p>
+    <p>Import Employee status via XML format</p>
     <form method="POST" action="">
     	<%! String xmlvalue; %>
 	<%! String escapedxml; %>
