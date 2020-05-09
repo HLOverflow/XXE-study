@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+
+  vulnserver:
+    # contains the vulnerable code to exploit
+    container_name: vulnerableserver-php
+    build:
+      context: ./vulnserver
+    ports:
+      - 8082:80
+    networks:
+      - xxephpdemo
+    cap_add:
+      - NET_ADMIN
+
+  attackerserver: 
+    # attacker's webservice to retrieve external DTD files
+    # http://attackerserver:8888 will be resolvable in xxephpdemo network.
+    container_name: attackerserver-php
+    build:
+      context: ./attackerserver
+      args:
+        LPORT: 8888
+    networks:
+      - xxephpdemo
+
+  aws-metadata-simulator: 
+    # use to demonstrate SSRF's impact in AWS cloud
+    container_name: aws-metadata-simulator-php
+    build:
+      context: ./aws-metadata-simulator/
+    networks:
+      - xxephpdemo
+
+networks:
+  xxephpdemo:
+    driver: "bridge"
