@@ -11,6 +11,20 @@ This may alternatively serve as a playground to test with Vulnerability scanners
 | PHP      | DOM parser                              | Php-Haboob-xxe   |
 | Java     | JAXB                                    | Java-XXE-JAXB    |
 
+## Lab Features
+
+1. **Portable Environment**
+
+   The environment was build via docker containers which allows for easy set up, without having to worry about dependencies.
+
+2. **Incorporated an attacker's file hosting server**
+
+   With the incorporated attacker file server, one can interactively shell in to drop files for the vulnerable server to fetch.
+
+3. **Simulated AWS Metadata Instance**
+
+   This can be used to demonstrate the impact of Server-side Request Forgery (SSRF) via XXE to steal cloud credentials.
+
 ## Quick Start
 
 1. Install docker.
