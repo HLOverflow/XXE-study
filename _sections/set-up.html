@@ -3,39 +3,70 @@ title: Set Up
 icon: fa-terminal
 order: 2
 ---
-<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-secondary" data-toggle="collapse" aria-expanded="false" data-target="#collapse-step1" aria-controls="collapse-step1">1</button>
-    <button type="button" class="btn btn-secondary" data-toggle="collapse" aria-expanded="false" data-target="#collapse-step2" aria-controls="collapse-step2">2</button>
-    <button type="button" class="btn btn-secondary" data-toggle="collapse" aria-expanded="false" data-target="#collapse-step3" aria-controls="collapse-step3">3</button>
-    <button type="button" class="btn btn-secondary" data-toggle="collapse" aria-expanded="false" data-target="#collapse-step4" aria-controls="collapse-step4">4</button>
-  </div>
-</div>
 
-<div class="collapse" id="collapse-step1">
-  <div class="card card-body">
+<div class="accordion" id="accordionExample">
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
 	<p>Install docker.</p>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="collapse" id="collapse-step2">
-  <div class="card card-body">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
 	<p>Install docker compose.</p>
+      </div>
+    </div>
   </div>
-</div>
 
-
-<div class="collapse" id="collapse-step3">
-  <div class="card card-body">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
 	<p>Clone the repository:</p>
 	<code class="language-plaintext highlighter-rouge">git clone https://github.com/HLOverflow/XXE-study.git</code>
+      </div>
+    </div>
   </div>
-</div>
 
-
-<div class="collapse" id="collapse-step4">
-  <div class="card card-body">
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Collapsible Group Item #4
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
 	<p>Visit respective Apps directory of interest and run:</p>
 	<code class="language-plaintext highlighter-rouge">./start.sh</code>
+      </div>
+    </div>
   </div>
+
 </div>
+
