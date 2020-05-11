@@ -198,11 +198,11 @@ Note: It has to be defined before any XML document node begin. This means that w
       Output:
 
       ```xml
-   <sample>
+      <sample>
           <first>I would like to say hello world</first>
           <second>I would like to say hello world again.</second>
       </sample>
-   ```
+      ```
    
 2. External definition**
    
