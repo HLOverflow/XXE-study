@@ -204,7 +204,7 @@ Note: It has to be defined before any XML document node begin. This means that w
       </sample>
       ```
    
-2. External definition**
+2. **External definition**
    
       External DTD file:
    
