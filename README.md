@@ -35,6 +35,7 @@ Most updated parsers does not allow external entities by default. In this lab, t
    `git clone https://github.com/HLOverflow/XXE-study.git`
 4. Visit respective `Apps` directory of interest and run:
    `./start.sh`
+5. To stop the respective apps, run the `./stop.sh`.
 
 ![Set up example](https://raw.githubusercontent.com/HLOverflow/XXE-study/gh-pages/assets/images/python-xxe-setup.gif)
 
