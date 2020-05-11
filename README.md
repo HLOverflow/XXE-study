@@ -204,9 +204,13 @@ Note: It has to be defined before any XML document node begin. This means that w
 
 1. [DepthSecurity: Exploitation](https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection): Exploitation technique for PHP web.
 2. [SYNACK: Deep Dive](https://www.synack.com/blog/a-deep-dive-into-xxe-injection/): This blog included attack scenario on PHP Expect module & Pass the SOAP.
-3. [ambb1: XXE Summary](http://www.ambb1.top/2019/05/13/xxe%E6%80%BB%E7%BB%93/): A chinese blog that attempts to summarise XXE.
+3. [INFOSEC: XML vulnerabilities still attractive](https://resources.infosecinstitute.com/xml-vulnerabilities-still-attractive-targets-attackers/): This blog included python lxml recommendation.
+4. [ambb1: XXE Summary](http://www.ambb1.top/2019/05/13/xxe%E6%80%BB%E7%BB%93/): A chinese blog that attempts to summarise XXE.
+5. [Christian Mainka: Detecting and exploiting XXE in SAML Interfaces](https://web-in-security.blogspot.com/2014/11/detecting-and-exploiting-xxe-in-saml.html): Additional settings in Java to prevent XXE and more on SAML XXE.
+6. [scriptkidd1e: CVE-2016-4434](https://scriptkidd1e.wordpress.com/2018/07/12/analysis-of-cve-2016-4434-xml-external-entity-vulnerability-on-apache-tika-1-12/): Openoffice XML (OOXML) attack on outdated Apache Tika 1.12
 
 ### Payload Cheatsheets
 
-1. [PayloadsAllTheThings/XXE Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection): List of payloads to experiment on.
+1. [PayloadsAllTheThings/XXE Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection): List of community payloads to experiment on.
 2. [staaldraad/XXE\_payloads](https://gist.github.com/staaldraad/01415b990939494879b4): More payloads examples
+3. [Christian Mainka: XXE cheat sheet](https://web-in-security.blogspot.com/2016/03/xxe-cheat-sheet.html): 2016 cheatsheet on XXE.
