@@ -1,15 +1,17 @@
 # XXE Study
 
-This repository contains various XXE labs set up for different languages and their different parsers.
+This repository contains various XXE labs set up for different languages and their different parsers. 
 This may alternatively serve as a playground to test with Vulnerability scanners / WAF rules / Secure Configuration settings.
+
+Most updated parsers does not allow external entities by default. In this lab, they are deliberately mis-configured to allow external entities.
 
 ## Available environments
 
-| Language | Parser Used                             | App              |
-| -------- | --------------------------------------- | ---------------- |
-| Python   | eTree / lxml parser ( eTree uses lxml ) | Python-flask-xxe |
-| PHP      | DOM parser                              | Php-Haboob-xxe   |
-| Java     | JAXB                                    | Java-XXE-JAXB    |
+| Language | Parser Used                             | App              | Remarks                                                      |
+| -------- | --------------------------------------- | ---------------- | ------------------------------------------------------------ |
+| Python   | eTree / lxml parser ( eTree uses lxml ) | Python-flask-xxe | By default, the attribute "no_network" that is set is True. Although local file read is possible, this prevents XXE from doing SSRF attacks.<br />See line 55 of app.py |
+| PHP      | DOM parser                              | Php-Haboob-xxe   | By default, the parser does not allow entity expansion and disallow external DTD.<br />See line 5 of xxe.php |
+| Java     | JAXB                                    | Java-XXE-JAXB    | By default, the parser does not allow external DTD access.<br />See line 104 of XXEApp.java |
 
 ## Lab Features
 
@@ -197,6 +199,13 @@ Note: It has to be defined before any XML document node begin. This means that w
 
 ## Great Works by Others
 
+### Useful Tools
+
+1. https://www.xxe.sh/: A convenient website to enter your domain name and generates a OOB XXE PoC.
+2. [staaldraad/xxeserv](https://github.com/staaldraad/xxeserv): Simplifies setting up of FTP Server to receive OOB XXE via FTP. See usage [here](https://staaldraad.github.io/2016/12/11/xxeftp/).
+3. [RequestBins](http://requestbin.net/): A convenient website to capture DNS queries / HTTP requests from vulnerable server.
+4. [Ngrok](https://ngrok.com/): A tool to generate temporary domain and forward TCP connections to local machine.
+
 ### More Open-source Labs
 
 1. [c0ny1/xxe-lab](https://github.com/c0ny1/xxe-lab): A similar repository in chinese.
@@ -205,7 +214,14 @@ Note: It has to be defined before any XML document node begin. This means that w
 ### Some Blogs on XXE
 
 1. [DepthSecurity: Exploitation](https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection): Exploitation technique for PHP web.
+2. [SYNACK: Deep Dive](https://www.synack.com/blog/a-deep-dive-into-xxe-injection/): This blog included attack scenario on PHP Expect module & Pass the SOAP.
+3. [INFOSEC: XML vulnerabilities still attractive](https://resources.infosecinstitute.com/xml-vulnerabilities-still-attractive-targets-attackers/): This blog included python lxml recommendation.
+4. [ambb1: XXE Summary](http://www.ambb1.top/2019/05/13/xxe%E6%80%BB%E7%BB%93/): A chinese blog that attempts to summarise XXE.
+5. [Christian Mainka: Detecting and exploiting XXE in SAML Interfaces](https://web-in-security.blogspot.com/2014/11/detecting-and-exploiting-xxe-in-saml.html): Additional settings in Java to prevent XXE and more on SAML XXE.
+6. [scriptkidd1e: CVE-2016-4434](https://scriptkidd1e.wordpress.com/2018/07/12/analysis-of-cve-2016-4434-xml-external-entity-vulnerability-on-apache-tika-1-12/): Openoffice XML (OOXML) attack on outdated Apache Tika 1.12
 
 ### Payload Cheatsheets
 
-1. [PayloadsAllTheThings/XXE Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection): List of payloads to experiment on.
+1. [PayloadsAllTheThings/XXE Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection): List of community payloads to experiment on.
+2. [staaldraad/XXE\_payloads](https://gist.github.com/staaldraad/01415b990939494879b4): More payloads examples
+3. [Christian Mainka: XXE cheat sheet](https://web-in-security.blogspot.com/2016/03/xxe-cheat-sheet.html): 2016 cheatsheet on XXE.
