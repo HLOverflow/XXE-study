@@ -235,9 +235,11 @@ Note: It has to be defined before any XML document node begin. This means that w
 
 ### Observations
 
-XXE File content disclosure has some limitations in type of files that can be disclosed. If a file content contains any of illegal bad characters, the content has a high likelihood of not being retrievable. In such cases, the attacker would need to rely on techniques to encode the content before retrieval. The following characters were collected during after some fuzzing.
+XXE File content disclosure has some limitations in type of files that can be disclosed. If a file content contains any of illegal bad characters, the content has a **<u>high likelihood</u>** of not being retrievable. In such cases, the attacker would need to rely on techniques to encode the content before retrieval. The following characters were collected during after some fuzzing.
 
-In the case of "<", this is due to parser scanning for the start of an XML node. If the content does not form a proper XML node, the parser would raise exceptions like "lxml.etree._raiseParseError XMLSyntaxError: chunk is not well balanced". A well-form XML `<test></test>` would not face such error.
+In the case of "<", this is due to parser scanning for the start of an XML node. If the content does not form a proper XML node, the parser would raise exceptions like "*lxml.etree._raiseParseError XMLSyntaxError: chunk is not well balanced*". A well-form XML `<test></test>` would not face such error.
+
+In the case of "&", this is due to parser scanning for an entity's name. Without a proper entity syntax, the parser would raise exceptions like "*lxml.etree._raiseParseError XMLSyntaxError: xmlParseEntityRef: no name*". A well-formed XML entity syntax like  `&gt;`  would not face such error.
 
 **Illegal characters**
 
