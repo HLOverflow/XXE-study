@@ -82,7 +82,7 @@ The following impacts can be demonstrated in the XXE lab set up and some example
 
 source: https://en.wikipedia.org/wiki/Document_type_definition
 
-**Minimal Syntax**
+**Syntax**
 
 ```xml
 <!DOCTYPE rootnode [
