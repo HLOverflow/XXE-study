@@ -9,9 +9,9 @@ Most updated parsers does not allow external entities by default. In this lab, t
 
 | Language | Parser Used                             | App              | Remarks                                                      |
 | -------- | --------------------------------------- | ---------------- | ------------------------------------------------------------ |
-| Python   | eTree / lxml parser | Python-flask-xxe | By default, the attribute "no_network" that is set is True. Although local file read is possible, this prevents XXE from doing SSRF attacks.<br />See line 55 of app.py |
-| PHP      | DOM parser                              | Php-Haboob-xxe   | By default, the parser does not allow entity expansion and disallow external DTD.<br />See line 5 of xxe.php |
-| Java     | JAXB                                    | Java-XXE-JAXB    | By default, the parser does not allow external DTD access.<br />See line 104 of XXEApp.java |
+| Python   | eTree / lxml parser | Python-flask-xxe | By default, the attribute "no_network" that is set is True. Although local file read is possible, this prevents XXE from doing SSRF attacks.<br /><br />See line 55 of app.py |
+| PHP      | DOM parser                              | Php-Haboob-xxe   | By default, the parser does not allow entity expansion and disallow external DTD.<br /><br />See line 5 of xxe.php |
+| Java     | JAXB                                    | Java-XXE-JAXB    | By default, the parser does not allow external DTD access.<br /><br />See line 104 of XXEApp.java |
 
 ## Lab Features
 
