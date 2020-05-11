@@ -34,6 +34,8 @@ This may alternatively serve as a playground to test with Vulnerability scanners
 4. Visit respective `Apps` directory of interest and run:
    `./start.sh`
 
+![Set up example](https://raw.githubusercontent.com/HLOverflow/XXE-study/gh-pages/assets/images/python-xxe-setup.gif)
+
 ## Intro
 
 **What is XXE?**
