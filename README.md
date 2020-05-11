@@ -1,15 +1,17 @@
 # XXE Study
 
-This repository contains various XXE labs set up for different languages and their different parsers.
+This repository contains various XXE labs set up for different languages and their different parsers. 
 This may alternatively serve as a playground to test with Vulnerability scanners / WAF rules / Secure Configuration settings.
+
+Most updated parsers does not allow external entities by default. In this lab, they are deliberately mis-configured to allow external entities.
 
 ## Available environments
 
-| Language | Parser Used                             | App              |
-| -------- | --------------------------------------- | ---------------- |
-| Python   | eTree / lxml parser ( eTree uses lxml ) | Python-flask-xxe |
-| PHP      | DOM parser                              | Php-Haboob-xxe   |
-| Java     | JAXB                                    | Java-XXE-JAXB    |
+| Language | Parser Used                             | App              | Remarks                                                      |
+| -------- | --------------------------------------- | ---------------- | ------------------------------------------------------------ |
+| Python   | eTree / lxml parser ( eTree uses lxml ) | Python-flask-xxe | By default, the attribute "no_network" that is set is True. Although local file read is possible, this prevents XXE from doing SSRF attacks.<br />See line 55 of app.py |
+| PHP      | DOM parser                              | Php-Haboob-xxe   | By default, the parser does not allow entity expansion and disallow external DTD.<br />See line 5 of xxe.php |
+| Java     | JAXB                                    | Java-XXE-JAXB    | By default, the parser does not allow external DTD access.<br />See line 104 of XXEApp.java |
 
 ## Lab Features
 
