@@ -195,6 +195,12 @@ Note: It has to be defined before any XML document node begin. This means that w
 
 ## Great Works by Others
 
+### Useful Tools
+
+1. https://www.xxe.sh/: A convenient website to enter your domain name and generates a OOB XXE PoC.
+2. [staaldraad/xxeserv](https://github.com/staaldraad/xxeserv): Simplifies setting up of FTP Server to receive OOB XXE via FTP. See usage [here](https://staaldraad.github.io/2016/12/11/xxeftp/).
+3. [Ngrok](https://ngrok.com/): A tool to generate temporary domain and forward TCP connections to local machine.
+
 ### More Open-source Labs
 
 1. [c0ny1/xxe-lab](https://github.com/c0ny1/xxe-lab): A similar repository in chinese.
