@@ -332,7 +332,7 @@ So how can we retrieve files with illegal characters like "<" and "&" ?
 Character Data (CDATA) can be used to surround illegal characters to prevent XML parser from parsing them.
 
 ```xml
-<![CDATA[ Here is my secret & < TEST ]]>
+<![CDATA[ You cannot read me with XXE & < TEST ]]>
 ```
 
 if the file content can be surround by `<![CDATA[ ` and `]]>` , the file content can be retrievable. 
