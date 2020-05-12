@@ -287,6 +287,8 @@ Usage of the above definition in the body:
    <!DOCTYPE r [
     <!ENTITY a "one" >
     <!ENTITY a "two" >
+    <!ENTITY % param '<!ENTITY a "three">'>
+    %param;
    ]>
    <Sample> &a; </Sample>
    ```
