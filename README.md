@@ -90,10 +90,15 @@ source: https://en.wikipedia.org/wiki/Document_type_definition
 	<!ENTITY test "hello world">
 	<!ENTITY test2 "hello world2">
 ]>
-<sample> &test; &test2;</sample>
 ```
 
-Note: It has to be defined before any XML document node begin. This means that when exploiting XXE, we cannot inject a DTD in the middle of an XML. The syntax is also case-sensitive.
+Note: It has to be defined before any XML document node begin. This means that when exploiting XXE, we cannot inject a DTD in the middle of an XML body. The syntax is also case-sensitive.
+
+Usage of the above definition in the body:
+
+```xml
+<sample> &test; &test2;</sample>
+```
 
 ### ENTITY
 
@@ -273,6 +278,26 @@ Note: It has to be defined before any XML document node begin. This means that w
          ```xml
          <document><body>hello world</body></document> 
          ```
+
+4. **First match matters**
+
+   Given the following definition and body:
+
+   ```xml
+   <!DOCTYPE r [
+    <!ENTITY a "one" >
+    <!ENTITY a "two" >
+   ]>
+   <Sample> &a; </Sample>
+   ```
+
+   Output:
+
+   ```xml
+   <Sample> one </Sample>
+   ```
+
+   When an entity is defined more than once, the XML parser will assume the first match and drop the remaining.
 
 ### Observations
 
