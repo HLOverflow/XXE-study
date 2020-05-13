@@ -443,6 +443,12 @@ Attacker's HTTP log:
 
 The content of `/etc/hostname` ex-filtrated in this case was `41dd2e9fdb08` .
 
+**OOB illegal characters**
+
+By using protocols like HTTP, an additional layer of protocol has their own illegal characters. For example, HTTP relies on "\r\n" as delimiter to distinguish HTTP headers.
+
+As such, non-encoded file content with characters like newlines cannot be successfully ex-filtrated without any form of encoding to remove such characters. As such, the impact of OOB data ex-filtration for non-PHP is often limited.
+
 ## Great Works by Others
 
 ### Useful Tools
