@@ -192,7 +192,7 @@ Usage of the above definition in the body:
       <!ENTITY trigger1 "I would like to say &variable; again.">
       ```
 
-      2 different usage within the document:
+      2 different usages within the document:
 
       ```xml
       <sample>
