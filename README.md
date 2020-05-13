@@ -176,7 +176,7 @@ Usage of the above definition in the body:
 
       Usage:
 
-      Parameter entities are used **exclusively** within DTDs. They cannot be used directly within XML document. 
+      Parameter entities are used **exclusively** within DTDs. They cannot be used directly within XML body. 
 
       ```xml-dtd
       <!ENTITY % param1 "<!ENTITY variable 'hello world'>">
