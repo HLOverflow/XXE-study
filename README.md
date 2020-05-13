@@ -254,7 +254,7 @@ Usage of the above definition in the body:
    
          The above would face an error *"XMLSyntaxError: PEReferences forbidden in internal subset"*.
    
-         In order to define a wrapper, an external entity has to be used.
+         In order to use a parameter entity in an entity's value, an external entity has to be used.
    
          external.dtd:
    
