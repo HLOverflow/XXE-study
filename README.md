@@ -72,6 +72,7 @@ The following impacts can be demonstrated in the XXE lab set up and some example
    2. Enumeration of internal services via "Port scanning".
    3. Stealing of cloud credentials via Meta-data instances.
 3. Denial-of-service
+4. Remote code execution (applicable only for PHP/expects)
 
 ## XML Essentials
 
@@ -407,9 +408,11 @@ PHP has a pseudo url "php://" that when invoked by PHP programs, can be abused t
 <name> &a; </name>
 ```
 
-**PHP expect module**
+**RCE via PHP expect module**
+
 The PECL's "expect" external module is often used to automates interactive applications. Some example use cases are to handle interactive applications like ssh / ftp over PHP. This allows command injection via the "expect://" pseudo url. However, this module is not installed along with the default PHP server but a custom add-on plugin added by developers.
 
+You may try out with the PHP lab container which the 'expect' module has been installed.
 
 **Data Ex-filtration via Out-of-Band XXE (OOBXXE)**
 
