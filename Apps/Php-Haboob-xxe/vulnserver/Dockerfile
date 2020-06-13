@@ -17,6 +17,10 @@ RUN apt-get update && apt-get install -y iptables
 RUN apt-get install -y iputils-ping
 COPY ./setup-aws-simulator.sh /
 RUN chmod +x /setup-aws-simulator.sh
-ENTRYPOINT /setup-aws-simulator.sh && /my_init
 
+# set www-data as the owner
+RUN chown -R "www-data:www-data" /var/www/html
+
+# Set up entrypoint
+ENTRYPOINT /setup-aws-simulator.sh && /my_init
 #ENTRYPOINT /my_init
