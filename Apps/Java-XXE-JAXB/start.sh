@@ -1,6 +1,20 @@
 #!/bin/bash
 docker-compose up --build -d
-echo 
-echo "Visit http://localhost:8083 to access the vulnerable web application"
-echo "Use the following to access the attacker file hosting server: docker container exec -it attackerserver-jaxb bash"
-echo "Use http://attackerserver-jaxb:8888 to access the attacker hosting server from the vulnerable web app."
+echo -e ''
+echo -e 'EXPLOITATION'
+echo -e ''
+echo -e 'Visit \e[32mhttp://localhost:8083 \e[0mto access the vulnerable web application'
+echo -e 'Use http://attackerserver-jaxb:8888 to access the attacker hosting server from the vulnerable web app.'
+echo -e ''
+echo -e 'DEBUGGING'
+echo -e ''
+echo -e '+---------------------------------+------------------------------------------------------------+'
+echo -e '| docker containers               | How to access                                              |'
+echo -e '+---------------------------------+------------------------------------------------------------+'
+echo -e '| attacker server (file hosting ) | docker container exec -it attackerserver-jaxb bash         |'
+echo -e '+---------------------------------+------------------------------------------------------------+'
+echo -e '| vulnerable server               | docker container exec -it vulnerableserver-jaxb bash       |'
+echo -e '+---------------------------------+------------------------------------------------------------+'
+echo -e '| aws metadata simulator          | docker container exec -it aws-metadata-simulator-jaxb bash |'
+echo -e '+---------------------------------+------------------------------------------------------------+'
+

@@ -1,6 +1,19 @@
 #!/bin/bash
 docker-compose up --build -d
-echo 
-echo "Visit http://localhost:8082/xxe to access the vulnerable web application"
-echo "Use the following to access the attacker file hosting server: docker container exec -it attackerserver-php bash"
-echo "Use http://attackerserver-php:8888 to access the attacker hosting server from the vulnerable web app."
+echo -e ''
+echo -e 'EXPLOITATION'
+echo -e ''
+echo -e 'Visit \e[32mhttp://localhost:8082/xxe \e[0mto access the vulnerable web application'
+echo -e 'Use http://attackerserver-php:8888 to access the attacker hosting server from the vulnerable web app.'
+echo -e ''
+echo -e 'DEBUGGING'
+echo -e ''
+echo -e '+---------------------------------+----------------------------------------------------------+'
+echo -e '| docker containers               | How to access                                            |'
+echo -e '+---------------------------------+----------------------------------------------------------+'
+echo -e '| attacker server (file hosting ) | docker container exec -it attackerserver-php bash        |'
+echo -e '+---------------------------------+----------------------------------------------------------+'
+echo -e '| vulnerable server               | docker container exec -it vulnerableserver-php bash      |'
+echo -e '+---------------------------------+----------------------------------------------------------+'
+echo -e '| aws metadata simulator          | docker container exec -it aws-metadata-simulator-php bash|'
+echo -e '+---------------------------------+----------------------------------------------------------+'
