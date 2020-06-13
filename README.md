@@ -407,6 +407,10 @@ PHP has a pseudo url "php://" that when invoked by PHP programs, can be abused t
 <name> &a; </name>
 ```
 
+**PHP expect module**
+The PECL's "expect" external module is often used to automates interactive applications. Some example use cases are to handle interactive applications like ssh / ftp over PHP. This allows command injection via the "expect://" pseudo url. However, this module is not installed along with the default PHP server but a custom add-on plugin added by developers.
+
+
 **Data Ex-filtration via Out-of-Band XXE (OOBXXE)**
 
 The previous techniques of reading files depends on the immediate response. This type of XXE is known as in-band XXE. Further complications arise when the server does not reflect the content directly in the immediate response. This type of scenario requires Out-of-Band XXE techniques, where the content are sent over to the attacker via other channels such as DNS / HTTP / FTP / etc.
@@ -471,6 +475,7 @@ As such, non-encoded file content with characters like newlines cannot be succes
 4. [ambb1: XXE Summary](http://www.ambb1.top/2019/05/13/xxe%E6%80%BB%E7%BB%93/): A chinese blog that attempts to summarise XXE.
 5. [Christian Mainka: Detecting and exploiting XXE in SAML Interfaces](https://web-in-security.blogspot.com/2014/11/detecting-and-exploiting-xxe-in-saml.html): Additional settings in Java to prevent XXE and more on SAML XXE.
 6. [scriptkidd1e: CVE-2016-4434](https://scriptkidd1e.wordpress.com/2018/07/12/analysis-of-cve-2016-4434-xml-external-entity-vulnerability-on-apache-tika-1-12/): Openoffice XML (OOXML) attack on outdated Apache Tika 1.12
+7. [XXE to RCE with PHP/expect](https://medium.com/@airman604/from-xxe-to-rce-with-php-expect-the-missing-link-a18c265ea4c7): XXE to RCE with "expect" module.
 
 ### Payload Cheatsheets
 
