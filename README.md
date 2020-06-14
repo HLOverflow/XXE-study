@@ -397,6 +397,14 @@ We can successfully read a file with illegal characters. You may try this out wi
 
 However, if the length of the file with illegal characters is too large, XML parser will attempt to throw *"XMLSyntaxError: Detected an entity reference loop"* as it attempts to stop billion laughter attacks. This can be seen when attempting to steal the source code of `app.py`.
 
+**Directory Listing**
+
+In certain parsers such as Java's SAX JAXB parser, it is possible to perform directory listing. This can be demonstrated via our provided Java lab container. 
+
+```xml
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file:///" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>
+```
+
 **PHP Wrappers**
 
 The PHP language allows stealing of file content regardless whether they contains illegal characters. This is unique to PHP alone. 
