@@ -493,6 +493,7 @@ As such, non-encoded file content with characters like newlines cannot be succes
 7. [Airman: XXE to RCE with PHP/expect](https://medium.com/@airman604/from-xxe-to-rce-with-php-expect-the-missing-link-a18c265ea4c7): XXE to RCE with "expect" module.
 8. [Andy Gill: XXE - Things Are Getting Out of Band](https://blog.zsec.uk/out-of-band-xxe-2/): OOB XXE for java 1.7 and RCE with ASP
 9. [Hackwithpassion: XXE in Golang are surprisingly hard](https://hackwithpassion.com/index.php/2020/02/10/xxes-in-golang-are-surprisingly-hard/): Golang's default XML libraries are not subceptible to XXE.
+10. [From blind XXE to root-level file read access](https://honoki.net/2018/12/12/from-blind-xxe-to-root-level-file-read-access/): Article highlights Java SAX's XXE directory listing capability and bypassing of firewall with internal proxy route.
 
 ### Payload Cheatsheets
 
