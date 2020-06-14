@@ -72,7 +72,7 @@ The following impacts can be demonstrated in the XXE lab set up and some example
    2. Enumeration of internal services via "Port scanning".
    3. Stealing of cloud credentials via Meta-data instances.
 3. Denial-of-service
-4. Remote code execution (applicable only for PHP/expects)
+4. Remote code execution (applicable only for PHP/expects or ASP)
 
 ## XML Essentials
 
@@ -478,8 +478,9 @@ As such, non-encoded file content with characters like newlines cannot be succes
 4. [ambb1: XXE Summary](http://www.ambb1.top/2019/05/13/xxe%E6%80%BB%E7%BB%93/): A chinese blog that attempts to summarise XXE.
 5. [Christian Mainka: Detecting and exploiting XXE in SAML Interfaces](https://web-in-security.blogspot.com/2014/11/detecting-and-exploiting-xxe-in-saml.html): Additional settings in Java to prevent XXE and more on SAML XXE.
 6. [scriptkidd1e: CVE-2016-4434](https://scriptkidd1e.wordpress.com/2018/07/12/analysis-of-cve-2016-4434-xml-external-entity-vulnerability-on-apache-tika-1-12/): Openoffice XML (OOXML) attack on outdated Apache Tika 1.12
-7. [XXE to RCE with PHP/expect](https://medium.com/@airman604/from-xxe-to-rce-with-php-expect-the-missing-link-a18c265ea4c7): XXE to RCE with "expect" module.
-8. [XXE in Golang are surprisingly hard](https://hackwithpassion.com/index.php/2020/02/10/xxes-in-golang-are-surprisingly-hard/): Golang's default XML libraries are not subceptible to XXE.
+7. [Airman: XXE to RCE with PHP/expect](https://medium.com/@airman604/from-xxe-to-rce-with-php-expect-the-missing-link-a18c265ea4c7): XXE to RCE with "expect" module.
+8. [Andy Gill: XXE - Things Are Getting Out of Band](https://blog.zsec.uk/out-of-band-xxe-2/): OOB XXE for java 1.7 and RCE with ASP
+9. [Hackwithpassion: XXE in Golang are surprisingly hard](https://hackwithpassion.com/index.php/2020/02/10/xxes-in-golang-are-surprisingly-hard/): Golang's default XML libraries are not subceptible to XXE.
 
 ### Payload Cheatsheets
 
