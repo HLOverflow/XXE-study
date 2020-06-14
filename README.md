@@ -72,7 +72,11 @@ The following impacts can be demonstrated in the XXE lab set up and some example
    2. Enumeration of internal services via "Port scanning".
    3. Stealing of cloud credentials via Meta-data instances.
 3. Denial-of-service
-4. Remote code execution (applicable only for PHP/expects or ASP)
+
+**Other Possible Impacts (Parser specifics)**
+
+1. Directory listing ( applicable only for Java SAX parser )
+2. Remote code execution (applicable only for PHP/expects or ASP)
 
 ## XML Essentials
 
