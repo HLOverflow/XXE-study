@@ -494,6 +494,8 @@ As such, non-encoded file content with characters like newlines cannot be succes
 8. [Andy Gill: XXE - Things Are Getting Out of Band](https://blog.zsec.uk/out-of-band-xxe-2/): OOB XXE for java 1.7 and RCE with ASP
 9. [Hackwithpassion: XXE in Golang are surprisingly hard](https://hackwithpassion.com/index.php/2020/02/10/xxes-in-golang-are-surprisingly-hard/): Golang's default XML libraries are not subceptible to XXE.
 10. [From blind XXE to root-level file read access](https://honoki.net/2018/12/12/from-blind-xxe-to-root-level-file-read-access/): Article highlights Java SAX's XXE directory listing capability and bypassing of firewall with internal proxy route.
+11. [From XXE to RCE: Pwn2Win CTF 2018 Writeup](https://bookgin.tw/2018/12/04/from-xxe-to-rce-pwn2win-ctf-2018-writeup/
+): A CTF writeup that made use of Content-Type manipulation to force Json -> xml data and how to use gopher to craft HTTP request.
 
 ### Payload Cheatsheets
 
