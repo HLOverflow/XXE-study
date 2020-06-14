@@ -479,6 +479,7 @@ As such, non-encoded file content with characters like newlines cannot be succes
 5. [Christian Mainka: Detecting and exploiting XXE in SAML Interfaces](https://web-in-security.blogspot.com/2014/11/detecting-and-exploiting-xxe-in-saml.html): Additional settings in Java to prevent XXE and more on SAML XXE.
 6. [scriptkidd1e: CVE-2016-4434](https://scriptkidd1e.wordpress.com/2018/07/12/analysis-of-cve-2016-4434-xml-external-entity-vulnerability-on-apache-tika-1-12/): Openoffice XML (OOXML) attack on outdated Apache Tika 1.12
 7. [XXE to RCE with PHP/expect](https://medium.com/@airman604/from-xxe-to-rce-with-php-expect-the-missing-link-a18c265ea4c7): XXE to RCE with "expect" module.
+8. [XXE in Golang are surprisingly hard](https://hackwithpassion.com/index.php/2020/02/10/xxes-in-golang-are-surprisingly-hard/): Golang's default XML libraries are not subceptible to XXE.
 
 ### Payload Cheatsheets
 
