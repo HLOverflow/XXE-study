@@ -424,7 +424,7 @@ PHP has a pseudo url "php://" that when invoked by PHP programs, can be abused t
 
 The PECL's "expect" external module is often used to automate interactive applications. Some example use cases are to handle interactive applications like ssh / ftp over PHP. This allows command injection via the "expect://" pseudo url. However, this module is not installed along with the default PHP server but a custom add-on plugin added by developers.
 
-You may try out with the PHP lab container which the 'expect' module has been installed.
+You may try out with the PHP lab container where the 'expect' module has been installed.
 
 **Data Ex-filtration via Out-of-Band XXE (OOBXXE)**
 
