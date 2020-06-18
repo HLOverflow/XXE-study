@@ -482,6 +482,10 @@ As such, non-encoded file content with characters like newlines cannot be succes
 1. [c0ny1/xxe-lab](https://github.com/c0ny1/xxe-lab): A similar repository in chinese.
 2. [jbarone/xxelab](https://github.com/jbarone/xxelab): PHP application with python XXE shell
 
+### More Closed-source Labs
+
+1. [PortSwigger/XXE](https://portswigger.net/web-security/xxe): Free PortSwigger labs that features XXE (requires sign in).
+
 ### Some Blogs on XXE
 
 1. [DepthSecurity: Exploitation](https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection): Exploitation technique for PHP web.
