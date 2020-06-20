@@ -6,5 +6,5 @@ COPY ./temp /usr/local/tomcat/temp
 RUN apt-get update && apt-get install -y iptables
 COPY ./setup-aws-simulator.sh /
 RUN chmod +x /setup-aws-simulator.sh
-#ENTRYPOINT /setup-aws-simulator.sh && catalina.sh run
-ENTRYPOINT catalina.sh run
+ENTRYPOINT /setup-aws-simulator.sh && catalina.sh run
+#ENTRYPOINT catalina.sh run
