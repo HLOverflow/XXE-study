@@ -1,5 +1,8 @@
 FROM golang
-RUN git clone https://github.com/priorax/mock-ec2-metadata.git
-WORKDIR /go/mock-ec2-metadata/
-RUN make deps && make
-ENTRYPOINT /go/mock-ec2-metadata/bin/mock-ec2-metadata_0.4.1_linux_amd64
+RUN git clone https://github.com/jtblin/aws-mock-metadata.git
+WORKDIR /go/aws-mock-metadata/
+RUN touch .env
+ENV APP_PORT=8111
+ENV ROLE_NAME=mock-user
+RUN make build
+ENTRYPOINT bin/aws-mock-metadata --mock-instance-profile=true --app-port ${APP_PORT} --role-name ${ROLE_NAME}

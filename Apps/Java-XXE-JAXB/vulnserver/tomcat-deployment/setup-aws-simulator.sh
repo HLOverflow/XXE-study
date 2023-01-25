@@ -7,5 +7,5 @@ echo $simulatorip aws-metadata-simulator-jaxb >> /etc/hosts
 echo $attackerip attackerserver-jaxb >> /etc/hosts
 
 # The following will mess up docker's container name resolution. choose iptables-legacy if iptables --list shows warning of iptables-legacy.
-# iptables -t nat -A OUTPUT -p tcp -d 169.254.169.254 --dport 80 -j DNAT --to-destination $simulatorip:8111
-iptables-legacy -t nat -A OUTPUT -p tcp -d 169.254.169.254 --dport 80 -j DNAT --to-destination $simulatorip:8111
+iptables -t nat -I OUTPUT 1 -p tcp -d 169.254.169.254 --dport 80 -j DNAT --to-destination $simulatorip:8111
+#iptables-legacy -t nat -I OUTPUT 1 -p tcp -d 169.254.169.254 --dport 80 -j DNAT --to-destination $simulatorip:8111
