@@ -1,5 +1,5 @@
-Based off from https://github.com/nytimes/mock-ec2-metadata
-https://github.com/priorax/mock-ec2-metadata.git
+Removed: https://github.com/priorax/mock-ec2-metadata.git
+Updated: New template is based off from https://github.com/nytimes/mock-ec2-metadata
 
 # Requires to configure IP forwarding in the vulnerable server with container names.
 1. Copy setup-aws-simulator.sh.template to the respective vulnerable server folders.
