@@ -1,5 +1,5 @@
 FROM golang
-RUN git clone https://github.com/jtblin/aws-mock-metadata.git
+RUN git clone https://github.com/HLOverflow/aws-mock-metadata.git
 WORKDIR /go/aws-mock-metadata/
 RUN touch .env
 ENV APP_PORT=8111
