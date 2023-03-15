@@ -1,6 +1,6 @@
 #!/bin/bash
-simulatorip=$(ping -c 1 aws-metadata-simulator-flaskxxe | grep "bytes from" | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
-attackerip=$(ping -c 1 attackerserver-flaskxxe | grep "bytes from" | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
+simulatorip=$(ping -c 1 $SIMULATOR_HOSTNAME | grep "bytes from" | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
+attackerip=$(ping -c 1 $ATTACKER_HOSTNAME | grep "bytes from" | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
 
 # save the container names before setting ip forwarding
 echo $simulatorip aws-metadata-simulator-flaskxxe >> /etc/hosts
