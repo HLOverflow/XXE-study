@@ -18,4 +18,4 @@
 4. Send the request.
 5. Observe the incoming request on the webhook site.
 
-For this lab you should see "User-Agent: Java/1.8.0_242".
+For this lab you should see "User-Agent: Java/1.8.0_342".
