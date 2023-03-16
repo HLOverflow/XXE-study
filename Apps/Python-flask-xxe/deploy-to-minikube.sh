@@ -7,9 +7,9 @@ if [ $err -eq 1 ]; then
     exit 1;
 fi
 
-minikube status | grep stopped
+minikube status | grep Running
 err=$?
-if [ $err -eq 0 ]; then
+if [ $err -eq 1 ]; then
     echo 'Please start minikube first...';
     exit 1;
 fi
@@ -17,7 +17,8 @@ fi
 echo -e '[*] Step 1 - Link to Minikube VM docker'
 eval $(minikube docker-env)
 echo -e '[*] Step 2 - Build local images first'
-./build.sh
+docker-compose build
+
 echo -e '[*] Step 3 - Proceed to deploy built local images to Kubernetes in Minikube'
 kubectl apply -f k8s/deployment.yaml
 echo -e '[*] Please allow some time for deployment to minikube...'
@@ -37,11 +38,14 @@ echo -e ''
 echo -e 'Access the relevant pods via their names...'
 echo -e '$ kubectl exec -it <podname> -- bash'
 echo -e ''
+attkname=$(kubectl get pods -lapp=attackerserver --field-selector=status.phase==Running -o name)
+simname=$(kubectl get pods -lapp=metadata-simulator --field-selector=status.phase==Running -o name)
+vulname=$(kubectl get pods -lapp=vulnerableserver --field-selector=status.phase==Running -o name | head -n 1)
 echo -e '+---------------------------------+-----------------------------------------------------------------------------+'
-echo -e '| attacker server (file hosting ) | kubectl exec -it '$(kubectl get pods -lapp=attackerserver -o name)' -- bash	|'
+echo -e '| attacker server (file hosting ) | kubectl exec -it '$attkname' -- bash	|'
 echo -e '+---------------------------------+-----------------------------------------------------------------------------+'
-echo -e '| aws metadata simulator          | kubectl exec -it '$(kubectl get pods -lapp=metadata-simulator -o name)' -- bash	|'
+echo -e '| aws metadata simulator          | kubectl exec -it '$simname' -- bash	|'
 echo -e '+---------------------------------+-----------------------------------------------------------------------------+'
-echo -e '| vulnerable server               | kubectl exec -it '$(kubectl get pods -lapp=vulnerableserver -o name | head -n 1)' -- bash	|'
+echo -e '| vulnerable server               | kubectl exec -it '$vulname' -- bash	|'
 echo -e '+---------------------------------+-----------------------------------------------------------------------------+'
 

@@ -41,8 +41,8 @@ spec:
     app: metadata-simulator
   ports:
   - protocol: TCP
-    port: 8888
-    targetPort: 8888
+    port: 8111
+    targetPort: 8111
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -74,9 +74,9 @@ spec:
     app: vulnerableserver
   ports:
   - protocol: TCP
-    port: 8081
-    targetPort: 8081
-    nodePort: 30081
+    port: 5000
+    targetPort: 5000
+    nodePort: 30000
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -86,7 +86,7 @@ spec:
   selector:
     matchLabels:
       app: vulnerableserver
-  # replicas: 2
+  replicas: 2
   template:
     metadata:
       labels:
@@ -97,10 +97,14 @@ spec:
           image: python-flask-xxe_vulnserver:latest
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 8081
+          - containerPort: 5000
           env:
           - name: ATTACKER_HOSTNAME
             value: "attackerserver-service.default.svc.cluster.local"
           - name: SIMULATOR_HOSTNAME
             value: "simulator-service.default.svc.cluster.local"
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN  # this is for iptables to work
 ---
