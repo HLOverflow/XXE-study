@@ -1,10 +1,27 @@
 #!/bin/bash	
+echo -e '[*] Step 0 - Check for Minikube first'
+which minikube
+err=$?
+if [ $err -eq 1 ]; then
+    echo 'Please install minikube and set it up first';
+    exit 1;
+fi
+
+minikube status | grep stopped
+err=$?
+if [ $err -eq 0 ]; then
+    echo 'Please start minikube first...';
+    exit 1;
+fi
+
 echo -e '[*] Step 1 - Link to Minikube VM docker'
 eval $(minikube docker-env)
 echo -e '[*] Step 2 - Build local images first'
 ./build.sh
 echo -e '[*] Step 3 - Proceed to deploy built local images to Kubernetes in Minikube'
 kubectl apply -f k8s/deployment.yaml
+echo -e '[*] Please allow some time for deployment to minikube...'
+sleep 20s
 echo -e ''
 echo -e 'EXPLOITATION'
 echo -e ''
@@ -13,10 +30,11 @@ echo -e 'Use http://attackerserver-flaskxxe:8888 to access the attacker hosting 
 echo -e ''
 echo -e 'DEBUGGING'
 echo -e ''
-echo -e 'GET PODS'
+echo -e 'Here are the kubernetest PODS:'
 echo -e ''
 kubectl get pods
-echo =e 'Access the relevant pods via their names...'
+echo -e ''
+echo -e 'Access the relevant pods via their names...'
 echo -e '$ kubectl exec -it <podname> -- bash'
 echo -e ''
 echo -e '+---------------------------------+-----------------------------------------------------------------------------+'
